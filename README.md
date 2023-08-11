@@ -11,6 +11,8 @@ Variational Bayes Select
 
 ## Data selection folder
 
-This code is used for Marker selection, based on our recent paper:
+This code is used for Marker selection. To run python code:
+>python3 mre.py
+
 
 class SBP_layer in model.py is the main code for selection. In the SBP_layer, where self.mask==0, the corresponding marker can be deleted .
