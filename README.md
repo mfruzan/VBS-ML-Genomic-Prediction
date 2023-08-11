@@ -9,7 +9,7 @@ Variational Bayes Select
 
 
 
-## Data selection folder
+## Data Selection folder
 
 This code is used for Marker selection. To run python code:
 >python3 mre.py
