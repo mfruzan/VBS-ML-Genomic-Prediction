@@ -28,7 +28,7 @@ Sys.time()
  
 #testing 
 trans <- (t(mark) %*% kmat.inv)/kbar
-testID <-read.table("solit/2014/01/testID.txt", header=FALSE, stringsAsFactors=FALSE)
+testID <-read.table("split/2014/01/testID.txt", header=FALSE, stringsAsFactors=FALSE)
 TEST.ID.VEC <- as.numeric(testID[,1])
 TEST.ID.VEC <- TEST.ID.VEC+1
 
