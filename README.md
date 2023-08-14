@@ -16,3 +16,5 @@ This code is used for Marker selection. To run python code:
 
 
 class SBP_layer in model.py is the main code for selection. In the SBP_layer, where self.mask==0, the corresponding marker can be deleted .
+
+For enquiries please contact Qingsen Yan <qingsenyan@gmail.com>
