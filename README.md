@@ -23,6 +23,6 @@ Output of each split is written in a folder called run_output under that split. 
 
 This code is used for yield prediction using all markers. To run python code:
 >python3  main.py
-
+Output Yield observations vs predictions  for test line is written to a tab-separated text file in result/predictions.txt.
 
 For enquiries please contact Qingsen Yan <qingsenyan@gmail.com>
