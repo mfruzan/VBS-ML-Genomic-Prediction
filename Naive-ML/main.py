@@ -203,15 +203,19 @@ class Test(object):
     def test(self):
         self.model.eval()
         filename = os.path.join(self.result_save_dir, 'Res.txt')
+        pred_file = os.path.join(self.result_save_dir, 'predictions.txt')
 
         ErrL1 = list()
         ErrRela = list()
         ErrMSE = list()
+        pred, obs = [], []
         for img, label in self.test_data_loader:
 
             img, label = img.cuda(), label.cuda()
 
             output = self.model(img)
+            pred.append(float(output))
+            obs.append(float(label))
             loss = self.loss(output, label) # predicting the yield
             print('loss: {:0.4f}'.format(loss))
             ErrL1.append(loss.cpu().data.numpy())
@@ -231,6 +235,10 @@ class Test(object):
         print("The average and variance of L1 loss are {:.4f} and {:.4f}\n".format(ErrL1_avge, ErrL1_var))
         print("The average and variance of MSE are {:.4f} and {:.4f}\n".format(ErrMSE_avge, ErrMSE_var))
         print("The average and variance of Relative Error are {:.4f} and {:.4f}\n".format(ErrRela_avge, ErrRela_var))
+        with open(pred_file, 'w') as file:
+            file.write('Observation\tPrediction\n')
+            for idx, prd in enumerate(pred):
+                file.write('{:0.3f}\t{:0.3f}\n'.format(obs[idx],prd))
 
 
 
