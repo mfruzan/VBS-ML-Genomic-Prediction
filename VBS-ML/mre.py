@@ -93,6 +93,7 @@ for split in splits:
         os.mkdir(output_path)
     log_file = os.path.join(output_path, 'log.txt')
     mre_file = os.path.join(output_path, 'mre.txt')
+    pred_file = os.path.join(output_path, 'predictions.txt')
 
     # Train the neural network
     model = testModel(threshold=THRESHOLD).cuda()
@@ -174,5 +175,11 @@ for split in splits:
 
     with open(mre_file, 'a') as file:
         file.write('MRE (first 1000):{:0.6f}\n'.format(mre(pred, obs, n=1000)))
+    with open(pred_file, 'w') as file:
+        file.write('Observation\tPrediction\n')
+        for idx, prd in enumerate(pred):
+            file.write('{:0.3f}\t{:0.3f}\n'.format(obs[idx],prd))
+
+          
 end_time = time.time()
 print('Time taken = {} sec'.format(end_time - start_time))
