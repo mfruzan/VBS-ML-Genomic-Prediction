@@ -17,6 +17,8 @@ This code is used for Marker selection. To run python code:
 
 class SBP_layer in model.py is the main code for selection. In the SBP_layer, where self.mask==0, the corresponding marker can be deleted .
 
+Output of each split is written in a folder called run_output under that split. Yield observation vs prediction for test lines is written in a tab-separeted text file called predictions.txt.
+
 ## Naive-ML folder
 
 This code is used for yield prediction using all markers. To run python code:
